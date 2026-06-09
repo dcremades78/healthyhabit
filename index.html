@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>RAMPED × HealthyHabit — Influencer Launch Strategy · DACH</title>
+<style>
+  :root {
+    --pink:   #E8006E;
+    --purple: #8A2FC9;
+    --teal:   #00B4A0;
+    --dark:   #0A0F14;
+    --darker: #060A0D;
+    --card:   #111820;
+    --border: rgba(255,255,255,0.07);
+    --text:   #FFFFFF;
+    --muted:  rgba(255,255,255,0.52);
+    --light:  rgba(255,255,255,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--dark); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 54px; background: rgba(6,10,13,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .nav-brand { font-size: 13px; font-weight: 700; letter-spacing: .06em; }
+  .nav-brand .x { color: var(--muted); font-weight: 300; margin: 0 6px; }
+  .nav-brand .client { color: var(--teal); }
+  .nav-links { display: flex; gap: 1.75rem; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-right { font-size: 11px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+
+  /* LAYOUT */
+  section { padding: 6rem 0; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 2.5rem; }
+  hr.sep { border: none; border-top: 1px solid var(--border); }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 100px 2.5rem 5rem; max-width: 900px; margin: 0 auto; }
+  .hero-chip { display: inline-block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); font-weight: 600; margin-bottom: 2rem; }
+  .hero h1 { font-size: clamp(2.6rem, 5.5vw, 4.6rem); font-weight: 700; line-height: 1.08; letter-spacing: -.025em; margin-bottom: 1.5rem; }
+  .hero h1 em { font-style: italic; color: var(--teal); }
+  .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 580px; line-height: 1.75; margin-bottom: 3rem; }
+  .hero-meta { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+  .meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .meta-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+  .meta-val { font-size: 14px; font-weight: 600; }
+
+  /* SECTION LABELS */
+  .sec-num { font-size: 11px; color: var(--teal); letter-spacing: .1em; text-transform: uppercase; font-weight: 600; margin-bottom: .75rem; }
+  .sec-title { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; margin-bottom: 1.2rem; }
+  .sec-title em { color: var(--teal); font-style: italic; }
+  .sec-lead { font-size: 1.05rem; color: var(--muted); max-width: 640px; line-height: 1.75; margin-bottom: 2.5rem; }
+
+  /* CARDS */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; }
+  .card { background: var(--card); padding: 1.75rem 2rem; border: 1px solid var(--border); }
+  .card-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .75rem; }
+  .card-title { font-size: 1rem; font-weight: 600; margin-bottom: .6rem; }
+  .card-body { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+  .card-num { font-size: 2.4rem; font-weight: 700; color: var(--teal); line-height: 1; margin-bottom: .4rem; }
+
+  /* HIGHLIGHT */
+  .hl { border-left: 3px solid var(--teal); padding: 1.1rem 1.5rem; background: rgba(0,180,160,.07); margin: 2rem 0; }
+  .hl p { font-size: .95rem; color: rgba(255,255,255,.78); line-height: 1.7; }
+  .hl strong { color: var(--text); }
+
+  /* QUOTE */
+  .quote { border-left: 3px solid var(--purple); padding: .9rem 1.4rem; margin: 1.25rem 0; }
+  .quote p { font-size: .95rem; color: var(--muted); font-style: italic; line-height: 1.7; }
+
+  /* STATS */
+  .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; margin: 2.5rem 0; }
+  .stat { background: var(--card); padding: 1.4rem 1.2rem; border: 1px solid var(--border); text-align: center; }
+  .stat-val { font-size: 1.9rem; font-weight: 700; color: var(--teal); line-height: 1; }
+  .stat-label { font-size: .7rem; color: var(--muted); margin-top: .4rem; text-transform: uppercase; letter-spacing: .06em; line-height: 1.3; }
+
+  /* FLOW */
+  .flow { display: flex; align-items: stretch; gap: 0; margin: 2rem 0; }
+  .flow-step { background: var(--card); border: 1px solid var(--border); padding: 1.5rem 1.25rem; flex: 1; text-align: center; position: relative; }
+  .flow-step.active { background: rgba(0,180,160,.12); border-color: var(--teal); }
+  .flow-step-num { font-size: .7rem; color: var(--teal); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .5rem; }
+  .flow-step-title { font-size: .9rem; font-weight: 600; margin-bottom: .35rem; }
+  .flow-step-body { font-size: .75rem; color: var(--muted); line-height: 1.5; }
+  .flow-arrow { display: flex; align-items: center; color: var(--muted); font-size: .9rem; padding: 0 .2rem; flex-shrink: 0; }
+
+  /* ANGLES */
+  .angle { background: var(--card); border: 1px solid var(--border); padding: 1.5rem; margin-bottom: 1px; display: flex; gap: 1.25rem; align-items: flex-start; }
+  .angle-tag { background: var(--teal); color: var(--dark); font-size: .7rem; font-weight: 700; padding: .25rem .6rem; border-radius: 3px; flex-shrink: 0; text-transform: uppercase; letter-spacing: .06em; margin-top: .15rem; min-width: 32px; text-align: center; }
+  .angle-tag.purple { background: var(--purple); color: white; }
+  .angle-title { font-size: 1rem; font-weight: 600; margin-bottom: .35rem; }
+  .angle-body { font-size: .875rem; color: var(--muted); line-height: 1.6; }
+  .angle-hook { font-size: .8rem; color: var(--teal); font-style: italic; margin-top: .5rem; }
+
+  /* CREATOR TYPES */
+  .creator-type { display: grid; grid-template-columns: 48px 1fr; gap: 1.25rem; background: var(--card); border: 1px solid var(--border); padding: 1.5rem; margin-bottom: 1px; }
+  .creator-num { width: 36px; height: 36px; background: var(--teal); color: var(--dark); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+  .creator-title { font-size: .95rem; font-weight: 600; margin-bottom: .3rem; }
+  .creator-body { font-size: .875rem; color: var(--muted); line-height: 1.6; }
+  .creator-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .5rem; }
+  .ctag { font-size: .7rem; padding: .15rem .5rem; background: var(--light); color: var(--muted); border-radius: 2px; }
+
+  /* SCENARIOS */
+  .scenario-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; margin: 2rem 0; }
+  .scenario { background: var(--card); border: 1px solid var(--border); padding: 1.75rem 1.5rem; }
+  .scenario.featured { border-color: var(--teal); background: rgba(0,180,160,.08); }
+  .scenario-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .75rem; }
+  .scenario-num { font-size: 2.8rem; font-weight: 700; color: var(--teal); line-height: 1; margin-bottom: .3rem; }
+  .scenario.featured .scenario-num { color: var(--teal); }
+  .scenario-sub { font-size: .75rem; color: var(--muted); margin-bottom: 1rem; }
+  .scenario-row { display: flex; justify-content: space-between; font-size: .8rem; padding: .35rem 0; border-top: 1px solid var(--border); }
+  .scenario-row:first-of-type { border-top: none; }
+  .scenario-key { color: var(--muted); }
+  .scenario-val { font-weight: 600; color: var(--text); }
+
+  /* INVESTMENT */
+  .invest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin: 2rem 0; }
+  .invest-box { background: var(--card); border: 1px solid var(--border); padding: 2rem; }
+  .invest-box.featured { border-color: var(--teal); }
+  .invest-amount { font-size: 2.4rem; font-weight: 700; color: var(--teal); line-height: 1; margin-bottom: .35rem; }
+  .invest-label { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1rem; }
+  .invest-body { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+
+  /* BUDGET TABLE */
+  .budget-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+  .budget-table th { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: .6rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+  .budget-table td { font-size: .875rem; padding: .75rem 1rem; border-bottom: 1px solid var(--border); color: var(--muted); }
+  .budget-table td:first-child { color: var(--text); font-weight: 500; }
+  .budget-table td:last-child { color: var(--teal); font-weight: 600; text-align: right; }
+  .budget-table tr.total td { color: var(--text); font-weight: 700; border-top: 1px solid var(--teal); border-bottom: none; }
+  .budget-table tr.total td:last-child { color: var(--teal); }
+  .budget-table tr:hover td { background: rgba(255,255,255,.02); }
+
+  /* CASE STUDY */
+  .case { background: var(--card); border: 1px solid var(--border); padding: 2.5rem; margin: 2rem 0; }
+  .case-brand { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: var(--teal); font-weight: 600; margin-bottom: .5rem; }
+  .case-title { font-size: 1.2rem; font-weight: 700; margin-bottom: .75rem; }
+  .case-body { font-size: .9rem; color: var(--muted); line-height: 1.7; }
+  .case-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; margin-top: 1.75rem; }
+  .cs { background: #0A0F14; padding: 1rem 1.1rem; border: 1px solid var(--border); }
+  .cs-val { font-size: 1.4rem; font-weight: 700; color: var(--teal); }
+  .cs-label { font-size: .7rem; color: var(--muted); margin-top: .2rem; line-height: 1.3; }
+
+  /* CHECKLIST */
+  .checks { margin: 1.5rem 0; }
+  .check { display: flex; gap: .75rem; padding: .55rem 0; border-top: 1px solid var(--border); align-items: flex-start; }
+  .check:first-child { border-top: none; }
+  .check-dot { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; flex-shrink: 0; margin-top: .45rem; }
+  .check-text { font-size: .9rem; color: var(--muted); line-height: 1.5; }
+  .check-text strong { color: var(--text); }
+
+  /* STEPS */
+  .steps { margin: 2rem 0; }
+  .step { display: grid; grid-template-columns: 48px 1fr; gap: 1.25rem; padding: 1.25rem 0; border-top: 1px solid var(--border); }
+  .step:first-child { border-top: none; }
+  .step-num { font-size: 1.4rem; font-weight: 700; color: var(--teal); }
+  .step-title { font-size: 1rem; font-weight: 600; margin-bottom: .3rem; }
+  .step-body { font-size: .875rem; color: var(--muted); line-height: 1.6; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem; max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer .brand { font-size: 14px; font-weight: 700; letter-spacing: .06em; }
+  footer .contact { font-size: 13px; color: var(--muted); }
+  footer .contact a { color: var(--teal); text-decoration: none; }
+  footer .conf { font-size: 11px; color: rgba(255,255,255,.2); text-transform: uppercase; letter-spacing: .08em; }
+
+  @media (max-width: 680px) {
+    .grid2, .grid3, .stats, .invest-grid, .case-stats, .scenario-grid { grid-template-columns: 1fr; }
+    .flow { flex-direction: column; }
+    .flow-arrow { display: none; }
+    nav .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">RAMPED <span class="x">×</span> <span class="client">HealthyHabit</span></div>
+  <div class="nav-links">
+    <a href="#opportunity">Opportunity</a>
+    <a href="#strategy">Strategy</a>
+    <a href="#creators">Creators</a>
+    <a href="#downloads">Downloads</a>
+    <a href="#investment">Investment</a>
+    <a href="#nextsteps">Next Steps</a>
+  </div>
+  <div class="nav-right">Confidential</div>
+</nav>
+
+<!-- HERO -->
+<div id="top" class="hero">
+  <div class="hero-chip">RAMPED × HealthyHabit · Influencer Launch Strategy · DACH · September 2026</div>
+  <h1>The fastest path from<br>zero to <em>10,000 downloads</em><br>in the DACH market.</h1>
+  <p class="hero-sub">A creator-led launch strategy for HealthyHabit — using micro and mid-tier influencers as beta-testers to generate authentic content, trackable installs, and a creative library that amplifies further with paid media.</p>
+  <div class="hero-meta">
+    <div class="meta-item"><span class="meta-label">Market</span><span class="meta-val">DACH (DE · AT · CH)</span></div>
+    <div class="meta-item"><span class="meta-label">Launch</span><span class="meta-val">September 2026</span></div>
+    <div class="meta-item"><span class="meta-label">Influencer budget</span><span class="meta-val">€10,000</span></div>
+    <div class="meta-item"><span class="meta-label">Tracking</span><span class="meta-val">Adjust + promo codes</span></div>
+    <div class="meta-item"><span class="meta-label">Paid media</span><span class="meta-val">Client-managed · Amplifies top content</span></div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- THE OPPORTUNITY -->
+<section id="opportunity">
+  <div class="container">
+    <div class="sec-num">01 · The Opportunity</div>
+    <h2 class="sec-title">Habit tracking is one of the<br>fastest-growing app categories.<br><em>DACH is still wide open.</em></h2>
+    <p class="sec-lead">Apps built around challenges and habit streaks have proven their model globally — 75 Hard alone generated millions of organic posts without any paid marketing. The DACH market is consuming this content in German and English, but has very few local voices leading the conversation.</p>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="card-label">Why this category works</div>
+        <div class="card-title">Challenge content is inherently shareable</div>
+        <div class="card-body">People document their progress publicly. A challenge app is not a tool — it's an identity. Creators don't have to "review" HealthyHabit. They live it, they share it, and their audience wants to join. The product generates content naturally.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Why now in DACH</div>
+        <div class="card-title">German-language creators in this niche are underserved</div>
+        <div class="card-body">Fitness, self-improvement and discipline content is dominated by English-language creators. DACH audiences actively seek German-speaking voices for the same content — the app that wins this niche first has a significant first-mover advantage.</div>
+      </div>
+    </div>
+
+    <div class="hl" style="margin-top:2rem;">
+      <p>The September launch window is smart. Post-summer, audiences return to routines, gyms fill up, and self-improvement intent peaks. <strong>It's the second-best time of year to launch a habit app — after January.</strong> That seasonal tailwind should be built into every piece of content we brief.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- THE APP -->
+<section id="app">
+  <div class="container">
+    <div class="sec-num">02 · The App</div>
+    <h2 class="sec-title">Built around challenges.<br><em>Designed to be shown off.</em></h2>
+    <p class="sec-lead">HealthyHabit isn't just a habit tracker — it's a structured challenge platform. Users commit to a challenge, track their daily progress, and build streaks. That structure is exactly what makes it creator-friendly: progress is visual, shareable, and emotionally compelling.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-val">2</div><div class="stat-label">stores · iOS + Android</div></div>
+      <div class="stat"><div class="stat-val">Free</div><div class="stat-label">trial for new users</div></div>
+      <div class="stat"><div class="stat-val">DACH</div><div class="stat-label">launch market · Sept 2026</div></div>
+      <div class="stat"><div class="stat-val">Adjust</div><div class="stat-label">MMP for tracking</div></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="card-label">For content creation</div>
+        <div class="card-title">The challenge format creates a content arc</div>
+        <div class="card-body">A 30-day or 75-day challenge gives creators a natural story to tell: Day 1 setup, midpoint check-in, final result. Each phase is a content opportunity. Audiences follow along, accountability builds, and the app gets weeks of sustained organic exposure from a single brief.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">For conversion</div>
+        <div class="card-title">Free trial removes the install barrier</div>
+        <div class="card-body">When a creator shares their challenge, viewers can try the exact same experience for free. No payment friction, no commitment required. The conversion path is as short as it gets: see creator → tap link → start challenge. Promo codes add an extra incentive layer on top.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- THE STRATEGY -->
+<section id="strategy">
+  <div class="container">
+    <div class="sec-num">03 · The Strategy</div>
+    <h2 class="sec-title">Don't send creators a press kit.<br><em>Give them the challenge.</em></h2>
+    <p class="sec-lead">The beta-tester model is the single biggest advantage available for a challenge app. Creators who live the product for 4–6 weeks before launch don't make promotional content — they make authentic content. That difference is what separates campaigns that convert from ones that don't.</p>
+
+    <div class="flow">
+      <div class="flow-step active">
+        <div class="flow-step-num">Step 1</div>
+        <div class="flow-step-title">Select & Onboard</div>
+        <div class="flow-step-body">Ramped casts 8–10 creators. Each gets early access to HealthyHabit and a challenge to start — before launch.</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-num">Step 2</div>
+        <div class="flow-step-title">Beta Period</div>
+        <div class="flow-step-body">4–6 weeks of real use. Creators document their progress. Content is built from genuine experience — not a brief.</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step active">
+        <div class="flow-step-num">Step 3</div>
+        <div class="flow-step-title">Coordinated Launch</div>
+        <div class="flow-step-body">Multiple creators post in the same launch window. App Store ranking benefits from concentrated install volume.</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-num">Step 4</div>
+        <div class="flow-step-title">Paid Amplification</div>
+        <div class="flow-step-body">Top-performing organic content gets boosted with paid media. Best creative proven by data before spending media budget.</div>
+      </div>
+    </div>
+
+    <div class="hl">
+      <p><strong>The coordinated launch matters more than most clients expect.</strong> When 8–10 creators post in the same 48-hour window, it signals momentum to the algorithm — and to people seeing multiple posts from different accounts they follow. It's the difference between one ripple and a wave.</p>
+    </div>
+
+    <div class="grid2" style="margin-top:1px;">
+      <div class="card">
+        <div class="card-label">Content rights strategy</div>
+        <div class="card-title">All content licensed for paid ads</div>
+        <div class="card-body">Every piece of creator content is produced with usage rights included. HealthyHabit can run the best-performing videos as Meta or TikTok ads immediately after the organic launch — no renegotiation, no delays, no extra cost. The creative library is an owned asset from day one.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Tracking architecture</div>
+        <div class="card-title">Every creator, every install — tracked</div>
+        <div class="card-body">Each creator receives a unique Adjust tracking link and a personal promo code. Downloads are attributed at the creator level. You see exactly who drives installs, at what cost per install, and which profiles convert best. This is the data that informs Month 2 decisions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- CONTENT ANGLES -->
+<section id="angles">
+  <div class="container">
+    <div class="sec-num">04 · Content Angles</div>
+    <h2 class="sec-title">Six creative hypotheses.<br>One launch to <em>find the winner.</em></h2>
+    <p class="sec-lead">Not all creators brief the same angle. We distribute the content across 6 directions to find which message drives installs — then paid media scales the one that wins.</p>
+
+    <div class="angle">
+      <div class="angle-tag">A</div>
+      <div>
+        <div class="angle-title">The transformation arc — Day 1 vs. Day 30</div>
+        <div class="angle-body">The most proven format in the habit app category. Creator starts the challenge on camera, commits publicly, and shares a closing video after a month. Before/after content in fitness and habit-building consistently outperforms all other formats on engagement and saves.</div>
+        <div class="angle-hook">"I started the HealthyHabit 30-day challenge. Here's what happened."</div>
+      </div>
+    </div>
+
+    <div class="angle">
+      <div class="angle-tag">B</div>
+      <div>
+        <div class="angle-title">The accountability angle — "my followers keep me honest"</div>
+        <div class="angle-body">Creator uses the public nature of the challenge to stay committed. They involve their audience in the journey — asking for check-ins, sharing streaks, reacting to comments. The app becomes part of the creator-audience relationship, not just a product review.</div>
+        <div class="angle-hook">"I told my followers I'd do this for 30 days. The app is tracking it — I can't quit now."</div>
+      </div>
+    </div>
+
+    <div class="angle">
+      <div class="angle-tag">C</div>
+      <div>
+        <div class="angle-title">The "I tried every habit app" comparison</div>
+        <div class="angle-body">Speaks directly to the large audience that has already tried habit trackers and given up. Creator positions HealthyHabit as the one that finally stuck — and explains specifically why. Credible, relatable, and high-intent for an audience already in the consideration phase.</div>
+        <div class="angle-hook">"I've deleted 6 habit apps in two years. This one's different — and here's why."</div>
+      </div>
+    </div>
+
+    <div class="angle">
+      <div class="angle-tag" style="background:var(--purple);color:white;">D</div>
+      <div>
+        <div class="angle-title">The morning routine integration</div>
+        <div class="angle-body">Morning routine content is among the highest-performing formats in the DACH self-improvement niche. Creator shows HealthyHabit as a natural part of their daily system — alongside coffee, journaling, workout. The app is positioned as a life upgrade, not a task manager.</div>
+        <div class="angle-hook">"This is how I start every morning. The app that changed my routine."</div>
+      </div>
+    </div>
+
+    <div class="angle">
+      <div class="angle-tag" style="background:var(--purple);color:white;">E</div>
+      <div>
+        <div class="angle-title">The "what I wish I had at 20" angle</div>
+        <div class="angle-body">Targets the 25–35 DACH audience reflecting on habits they wish they'd built earlier. Emotional, shareable, and positions the app as a tool for taking control. Works especially well in short-form video with a voiceover or direct-to-camera format.</div>
+        <div class="angle-hook">"If I had this app at 20, my life would look very different."</div>
+      </div>
+    </div>
+
+    <div class="angle">
+      <div class="angle-tag" style="background:var(--purple);color:white;">F</div>
+      <div>
+        <div class="angle-title">The "September reset" seasonal angle</div>
+        <div class="angle-body">Leverages the post-summer behaviour change moment. Many people feel January-like motivation in September after the summer — new routines, back to gym, fresh goals. This angle ties the app launch directly to a cultural moment that already exists in the audience's mindset.</div>
+        <div class="angle-hook">"September is my real New Year. This is the app I'm starting it with."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- CREATOR MIX -->
+<section id="creators">
+  <div class="container">
+    <div class="sec-num">05 · Creator Mix</div>
+    <h2 class="sec-title">Micro over macro.<br><em>Fit over follower count.</em></h2>
+    <p class="sec-lead">For a habit app launch in DACH, a creator with 30,000 highly engaged fitness followers will consistently outperform a lifestyle influencer with 300,000 disengaged ones. We focus on four creator profiles across the self-improvement, fitness and lifestyle verticals.</p>
+    <p style="font-size:.8rem;color:var(--muted);margin-bottom:1.5rem;">Profiles are illustrative. Final roster confirmed on availability and content fit with HealthyHabit's brand.</p>
+
+    <div class="creator-type">
+      <div class="creator-num">01</div>
+      <div>
+        <div class="creator-title">The Fitness & Discipline Creator</div>
+        <div class="creator-body">Creates content around workouts, physical challenges, and body transformation. Their audience has above-average purchase intent for health apps and is already familiar with the challenge format. The crossover to HealthyHabit is natural and credible.</div>
+        <div class="creator-tags"><span class="ctag">Instagram</span><span class="ctag">TikTok</span><span class="ctag">YouTube Shorts</span><span class="ctag">20k–150k followers</span><span class="ctag">Best for: Angles A, B</span></div>
+      </div>
+    </div>
+
+    <div class="creator-type">
+      <div class="creator-num">02</div>
+      <div>
+        <div class="creator-title">The Self-Improvement Voice</div>
+        <div class="creator-body">Focuses on mindset, productivity, journaling, and personal growth. Their content is consumed by exactly the audience that downloads habit apps — people actively trying to build better routines. High credibility when recommending tools. Strong in DACH on YouTube and Instagram.</div>
+        <div class="creator-tags"><span class="ctag">YouTube</span><span class="ctag">Instagram Reels</span><span class="ctag">25–38 audience</span><span class="ctag">15k–100k followers</span><span class="ctag">Best for: Angles C, E, F</span></div>
+      </div>
+    </div>
+
+    <div class="creator-type">
+      <div class="creator-num">03</div>
+      <div>
+        <div class="creator-title">The Morning Routine Creator</div>
+        <div class="creator-body">Documents their daily systems — morning routines, weekly reviews, habit stacks. This audience is primed for a habit challenge app and will immediately understand the product's value proposition. Morning routine content performs exceptionally well in the DACH self-improvement space.</div>
+        <div class="creator-tags"><span class="ctag">Instagram</span><span class="ctag">TikTok</span><span class="ctag">German-language</span><span class="ctag">10k–60k followers</span><span class="ctag">Best for: Angles D, F</span></div>
+      </div>
+    </div>
+
+    <div class="creator-type">
+      <div class="creator-num">04</div>
+      <div>
+        <div class="creator-title">The Relatable "Working on Myself" Creator</div>
+        <div class="creator-body">Not a performance athlete or productivity guru — just someone building better habits in public. Highly relatable, strong emotional resonance, drives word-of-mouth in the 22–32 demographic. Content feels like advice from a friend, not an influencer review. Excellent for driving free trial downloads.</div>
+        <div class="creator-tags"><span class="ctag">TikTok</span><span class="ctag">Instagram Stories</span><span class="ctag">22–32 audience</span><span class="ctag">8k–50k followers</span><span class="ctag">Best for: Angles B, C, E</span></div>
+      </div>
+    </div>
+
+    <div class="hl" style="margin-top:2rem;">
+      <p><strong>Language note:</strong> All content is briefed in German for the primary DACH audience. For Austrian and Swiss-German creators, we adapt the brief accordingly. We recommend a minimum of 70% German-language content to maximise relevance in the target market and App Store visibility for DE/AT/CH.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- DOWNLOAD SCENARIOS -->
+<section id="downloads">
+  <div class="container">
+    <div class="sec-num">06 · Download Scenarios</div>
+    <h2 class="sec-title">Realistic numbers.<br><em>With the assumptions shown.</em></h2>
+    <p class="sec-lead">Download forecasts for app launches are always estimates — conversion rates vary by audience quality, creative execution, and how competitive the App Store is at launch. We show three scenarios with full assumptions so you can judge them clearly.</p>
+
+    <div class="scenario-grid">
+      <div class="scenario">
+        <div class="scenario-label">Conservative</div>
+        <div class="scenario-num">1,000</div>
+        <div class="scenario-sub">downloads in launch month</div>
+        <div class="scenario-row"><span class="scenario-key">CPM</span><span class="scenario-val">€50</span></div>
+        <div class="scenario-row"><span class="scenario-key">Video views</span><span class="scenario-val">~200,000</span></div>
+        <div class="scenario-row"><span class="scenario-key">View-to-install rate</span><span class="scenario-val">0.5%</span></div>
+        <div class="scenario-row"><span class="scenario-key">Cost per install</span><span class="scenario-val">~€10</span></div>
+        <div class="scenario-row"><span class="scenario-key">Assumption</span><span class="scenario-val">Lower engagement, weaker content fit</span></div>
+      </div>
+      <div class="scenario featured">
+        <div class="scenario-label">Expected · Most likely</div>
+        <div class="scenario-num">2,250</div>
+        <div class="scenario-sub">downloads in launch month</div>
+        <div class="scenario-row"><span class="scenario-key">CPM</span><span class="scenario-val">€45</span></div>
+        <div class="scenario-row"><span class="scenario-key">Video views</span><span class="scenario-val">~225,000</span></div>
+        <div class="scenario-row"><span class="scenario-key">View-to-install rate</span><span class="scenario-val">1.0%</span></div>
+        <div class="scenario-row"><span class="scenario-key">Cost per install</span><span class="scenario-val">~€4.44</span></div>
+        <div class="scenario-row"><span class="scenario-key">Assumption</span><span class="scenario-val">Good creator fit, beta content</span></div>
+      </div>
+      <div class="scenario">
+        <div class="scenario-label">Optimistic</div>
+        <div class="scenario-num">5,000</div>
+        <div class="scenario-sub">downloads in launch month</div>
+        <div class="scenario-row"><span class="scenario-key">CPM</span><span class="scenario-val">€40</span></div>
+        <div class="scenario-row"><span class="scenario-key">Video views</span><span class="scenario-val">~250,000</span></div>
+        <div class="scenario-row"><span class="scenario-key">View-to-install rate</span><span class="scenario-val">2.0%</span></div>
+        <div class="scenario-row"><span class="scenario-key">Cost per install</span><span class="scenario-val">~€2</span></div>
+        <div class="scenario-row"><span class="scenario-key">Assumption</span><span class="scenario-val">High-fit creators, strong beta content</span></div>
+      </div>
+    </div>
+
+    <div class="hl">
+      <p><strong>How to read these numbers:</strong> CPM range of €40–50 is the realistic benchmark for influencer video content in DACH. View-to-install rates depend on audience fit and content quality — the beta-tester model and free trial push conversion above the 1% average. Paid media amplification of top-performing videos can add installs on top of these figures at additional media spend.</p>
+    </div>
+
+    <div class="grid2" style="margin-top:2rem;">
+      <div class="card">
+        <div class="card-label">App Store ranking benefit</div>
+        <div class="card-title">Concentrated launch volume matters</div>
+        <div class="card-body">When 8–10 creators post in the same launch window, the concentrated install spike pushes HealthyHabit up the App Store rankings in the Health & Fitness category for DACH stores. Organic search visibility in the App Store increases significantly — free installs on top of the campaign numbers.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Beta-tester advantage</div>
+        <div class="card-title">Conversion rates above industry average</div>
+        <div class="card-body">Industry average for app install campaigns via influencers: 0.3–0.8%. The beta-tester model, free trial, and challenge format consistently push conversion above 1% in comparable campaigns. Audiences following along a creator's challenge are pre-warmed and motivated — not cold.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- INVESTMENT -->
+<section id="investment">
+  <div class="container">
+    <div class="sec-num">07 · Investment</div>
+    <h2 class="sec-title">€10,000 for influencers.<br><em>Every euro tracked to downloads.</em></h2>
+    <p class="sec-lead">The influencer budget covers creator fees, content production, and usage rights. Ramped's management fee is quoted separately and covers campaign strategy, creator sourcing, briefing, negotiation, content review, and performance tracking.</p>
+
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>Creator tier</th>
+          <th>Qty</th>
+          <th>Avg followers (DACH)</th>
+          <th>Fee per creator (incl. rights)</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mid-tier (80k–250k)</td>
+          <td>2</td>
+          <td>~150,000</td>
+          <td>€1,800–2,200</td>
+          <td>€4,000</td>
+        </tr>
+        <tr>
+          <td>Micro (20k–80k)</td>
+          <td>5</td>
+          <td>~45,000</td>
+          <td>€700–1,000</td>
+          <td>€4,250</td>
+        </tr>
+        <tr>
+          <td>Nano / Niche (8k–20k)</td>
+          <td>3</td>
+          <td>~15,000</td>
+          <td>€350–500</td>
+          <td>€1,250</td>
+        </tr>
+        <tr>
+          <td>Content buffer (revisions, reshoot)</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>€500</td>
+        </tr>
+        <tr class="total">
+          <td>Total influencer budget</td>
+          <td>10 creators</td>
+          <td>~500,000 total reach</td>
+          <td>—</td>
+          <td>€10,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid3" style="margin-top:1px;">
+      <div class="card">
+        <div class="card-label">Included in influencer budget</div>
+        <div class="card-body">Creator fees · Usage rights for paid ads · Promo codes · Adjust tracking links · Organic post on creator channel</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Ramped management fee · Separate</div>
+        <div class="card-body">Creator casting & vetting · Campaign strategy · Briefing in EN + DE · Negotiations · Content review · Performance reporting</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Not included</div>
+        <div class="card-body">Paid media spend (client-managed) · App Store assets · Additional video editing · Translation beyond brief</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- TRACKING & ROI -->
+<section id="tracking">
+  <div class="container">
+    <div class="sec-num">08 · Tracking & ROI</div>
+    <h2 class="sec-title">Every download attributed.<br><em>Every creator accountable.</em></h2>
+    <p class="sec-lead">Trackable ROI was a specific requirement for this campaign. Here's exactly how we build the measurement architecture — using Adjust, promo codes, and per-creator reporting.</p>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="card-label">Adjust tracking links</div>
+        <div class="card-title">One unique link per creator</div>
+        <div class="card-body">Each creator's bio link and swipe-up points to a unique Adjust deep link. Every install via that link is attributed to that specific creator. You see installs, cost per install, and conversion rate at the individual creator level — not just campaign totals.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Promo codes</div>
+        <div class="card-title">A second attribution layer — and a conversion booster</div>
+        <div class="card-body">Each creator receives a personal promo code (e.g. LUKAS30, ANNA30) to share in their content. Codes serve two purposes: they create a download incentive for the audience, and they provide a second data point to cross-reference with Adjust — especially useful for Stories and TikTok where link tracking is imperfect.</div>
+      </div>
+    </div>
+
+    <div class="grid2" style="margin-top:1px;">
+      <div class="card">
+        <div class="card-label">Free version of Adjust</div>
+        <div class="card-title">Good enough for this campaign size</div>
+        <div class="card-body">Adjust's free tier supports up to 2,000 attributed installs per month — sufficient for a conservative launch scenario. If the campaign outperforms and you need more attribution capacity, upgrading mid-campaign is straightforward. We'll set up the campaigns with upgrade headroom in mind from the start.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Reporting</div>
+        <div class="card-title">Weekly performance snapshots</div>
+        <div class="card-body">Ramped delivers weekly performance snapshots during the campaign: installs per creator, cost per install, content engagement (views, saves, shares), and top-performing hooks. This data feeds directly into paid media targeting decisions and informs which creator profiles to scale in future campaigns.</div>
+      </div>
+    </div>
+
+    <div class="hl" style="margin-top:2rem;">
+      <p><strong>On Adjust's free tier limit:</strong> 2,000 attributed installs/month is the current free cap. If the campaign hits this early — which is a good problem to have — the paid plan starts at ~$99/month and unlocks unlimited attribution. We recommend setting this threshold as a trigger: if organic installs pass 1,500 by day 10, upgrade immediately so no installs go untracked.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- CASE STUDY -->
+<section id="casestudy">
+  <div class="container">
+    <div class="sec-num">09 · Proof It Works</div>
+    <h2 class="sec-title">We've driven app downloads<br>at scale <em>in health before.</em></h2>
+    <p class="sec-lead">HealthyHabit sits in the same broad category — health app, B2C, trust-sensitive, requires behaviour change. Ramped's influencer-led approach has already delivered at scale in this space.</p>
+
+    <div class="case">
+      <div class="case-brand">Case Study · Flo Health</div>
+      <div class="case-title">78.7M views. $2.89 CPM. 117% ROAS.</div>
+      <div class="case-body">Flo is one of the world's leading women's health apps. Ramped built a global UGC-led influencer campaign across LATAM and the US — micro and nano creators, keyword-driven content, all assets produced with paid usage rights for amplification. The result: 88% of videos surpassed 50,000 views, 13+ videos hit 1M+ views (2.5× the industry norm), and CPM came in 42% below the industry average. LATAM alone delivered 5× expected views at 3× lower CPM. The same model — authentic creators, clear brief, concentrated launch, boost the winners — is exactly what we're proposing for HealthyHabit in DACH.</div>
+      <div class="case-stats">
+        <div class="cs"><div class="cs-val">78.7M+</div><div class="cs-label">Total views across campaign</div></div>
+        <div class="cs"><div class="cs-val">$2.89</div><div class="cs-label">CPM · 42% below industry avg</div></div>
+        <div class="cs"><div class="cs-val">117%</div><div class="cs-label">ROAS on brand campaigns</div></div>
+        <div class="cs"><div class="cs-val">88%</div><div class="cs-label">Videos surpassed 50K views</div></div>
+      </div>
+    </div>
+
+    <div class="hl">
+      <p>The Flo results confirmed something we see consistently: <strong>micro and nano creators — the exact profile that makes sense for a niche app like HealthyHabit — consistently outperform on cost per install and engagement rate.</strong> Audience trust, not audience size, is what drives app downloads.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- WHY RAMPED -->
+<section id="ramped">
+  <div class="container">
+    <div class="sec-num">10 · Why Ramped</div>
+    <h2 class="sec-title">We don't manage campaigns.<br>We build <em>launch systems.</em></h2>
+
+    <div class="checks">
+      <div class="check"><div class="check-dot"></div><div class="check-text"><strong>DACH creator network in place.</strong> We have existing relationships with German-speaking creators across fitness, self-improvement, lifestyle and habit content. Casting for a September launch starts now — the best DACH micro creators book up fast in Q3.</div></div>
+      <div class="check"><div class="check-dot"></div><div class="check-text"><strong>Health and app vertical experience.</strong> Flo, Simple, and other health and lifestyle apps — we understand what converts in this category, what compliance requirements apply, and how to brief creators on sensitive health topics without losing authenticity.</div></div>
+      <div class="check"><div class="check-dot"></div><div class="check-text"><strong>We're on the brand's side.</strong> Ramped does not represent creators. We negotiate in HealthyHabit's interest — transparency on every creator fee, full usage rights in every contract, no hidden markups on creator costs.</div></div>
+      <div class="check"><div class="check-dot"></div><div class="check-text"><strong>Performance tracking built in from day one.</strong> Adjust setup, promo code creation, per-creator reporting — this is not an add-on. Every campaign we run is structured for measurement. You will know exactly which creators delivered and at what cost per install.</div></div>
+      <div class="check"><div class="check-dot"></div><div class="check-text"><strong>The launch is the foundation, not the finish.</strong> Once we know which creator profiles, which content angles and which audiences convert best, the campaign scales efficiently. Month 1 buys you data. Months 2 and 3 are where you put real budget behind what works.</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- NEXT STEPS -->
+<section id="nextsteps">
+  <div class="container">
+    <div class="sec-num">11 · Next Steps</div>
+    <h2 class="sec-title">Briefed and casting<br>within <em>two weeks.</em></h2>
+    <p class="sec-lead">A September launch means the beta period should start no later than late July. The timeline is tight — here's what needs to happen, and when.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-title">Confirm scope and sign off on proposal</div>
+          <div class="step-body">HealthyHabit reviews creator mix, budget split, and content angles. Any adjustments to the brief or budget allocation are made here — before any creator outreach begins.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-title">Share app access and brand guidelines</div>
+          <div class="step-body">Early access to the app for briefing purposes. Approved language around the product, any health claims to avoid, tone of voice reference in German and English. The cleaner the brand guidelines, the better the creator brief.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-title">Approve the creator shortlist</div>
+          <div class="step-body">Ramped presents 15–20 candidates across the four creator profiles. HealthyHabit reviews and confirms final roster before any contracting or outreach begins. The brand chooses who represents the product.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <div class="step-title">Beta period begins (late July / early August)</div>
+          <div class="step-body">Selected creators receive app access and promo codes. Adjust tracking links go live. Creators begin their challenges and document the experience. Ramped monitors progress and provides creative direction as needed.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div>
+          <div class="step-title">Coordinated launch in September</div>
+          <div class="step-body">All creators post in the same 48-hour launch window. Ramped coordinates timing, reviews final content for brief compliance, and delivers the creative library to HealthyHabit with full usage rights. Paid media team activates on top performers immediately.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="brand">RAMPED</div>
+  <div class="contact">David Cremades · <a href="mailto:david@getramped.com">david@getramped.com</a> · <a href="https://getramped.com" target="_blank">getramped.com</a></div>
+  <div class="conf">RAMPED × HealthyHabit · Confidential © 2026</div>
+</footer>
+
+</body>
+</html>
